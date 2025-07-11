@@ -1,0 +1,11 @@
+.env
+__pycache__/
+*.pyc
+modelo_maquinaria.pkl
+codificadores.pkl
+venv/
+*.log
+.env/
+.venv/
+ronquillo/
+.env
