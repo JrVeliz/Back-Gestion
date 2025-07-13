@@ -9,7 +9,7 @@ from datetime import datetime
 
 def entrenar_modelo():
     try:
-        print(f"[{datetime.now()}] ▶️ Iniciando entrenamiento...")
+        print(f"[{datetime.now()}] Iniciando entrenamiento...")
 
         engine = create_engine(DATABASE_URL)
 
@@ -17,7 +17,7 @@ def entrenar_modelo():
         df = df.drop(columns=['fecha_creado'], errors='ignore')
         df = df.drop(columns=['id'], errors='ignore')
 
-        print(f"[{datetime.now()}] ✅ Datos cargados correctamente. Registros: {len(df)}")
+        print(f"[{datetime.now()}] Datos cargados correctamente. Registros: {len(df)}")
 
         label_encoders = {}
         for col in df.select_dtypes(include='object').columns:
@@ -37,15 +37,15 @@ def entrenar_modelo():
         modelo.fit(X_train, y_train)
 
         score = modelo.score(X_test, y_test)
-        print(f"[{datetime.now()}] 📊 Precisión en test: {score * 100:.2f}%")
+        print(f"[{datetime.now()}] Precisión en test: {score * 100:.2f}%")
 
         joblib.dump(modelo, "modelo_maquinaria.pkl")
         joblib.dump(label_encoders, "codificadores.pkl")
 
-        print(f"[{datetime.now()}] 🎉 Modelo entrenado y guardado correctamente.")
+        print(f"[{datetime.now()}] Modelo entrenado y guardado correctamente.")
 
     except Exception as e:
-        print(f"[{datetime.now()}] ❌ ERROR durante entrenamiento: {e}")
+        print(f"[{datetime.now()}] ERROR durante entrenamiento: {e}")
 
 if __name__ == "__main__":
     entrenar_modelo()
