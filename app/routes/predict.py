@@ -11,7 +11,7 @@ def prediccion(datos: MaquinariaInput):
         print("hola 1")
         resultado = predecir(datos)
         print("hola 2")
-        maquinaria_id = datos.id  # si no tienes, puedes pasar aparte
+        maquinaria_id = datos.id
         if maquinaria_id:
             predicciones_services.guardar_prediccion(maquinaria_id, resultado_prediccion=resultado["falla_predicha"], confianza=resultado["top_3_probabilidades"][0]["probabilidad"])
 

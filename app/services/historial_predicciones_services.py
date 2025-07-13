@@ -26,11 +26,11 @@ def obtener_predicciones():
     for row in result:
         row_dict = dict(row._mapping)
 
-        # Convertir datetime a string
+        #datetime a string
         if isinstance(row_dict["fecha_prediccion"], (datetime.datetime, datetime.date)):
             row_dict["fecha_prediccion"] = row_dict["fecha_prediccion"].isoformat()
         
-        # Convertir Decimal a float
+        #Decimal a float
         if isinstance(row_dict["confianza"], Decimal):
             row_dict["confianza"] = float(row_dict["confianza"])
 

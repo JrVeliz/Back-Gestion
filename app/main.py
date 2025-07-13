@@ -6,10 +6,10 @@ app = FastAPI()
 # Configuración CORS
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],        # Permite cualquier origen
+    allow_origins=["*"],
     allow_credentials=True,
-    allow_methods=["*"],        # Permite todos los métodos (GET, POST, PUT, DELETE...)
-    allow_headers=["*"],        # Permite todos los headers
+    allow_methods=["*"],
+    allow_headers=["*"],
 )
 
 app.include_router(predict.router, prefix="/api", tags=["Predicción"])
